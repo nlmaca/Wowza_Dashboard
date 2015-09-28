@@ -11,6 +11,9 @@ If you want to test the dashboard just open this page and start the vod movie. w
 http://vanmarion.nl/projects/wowza_demo/index.php
 (works with desktop, android, iphone) windows phone not tested.
 
+#screenshots 
+http://vanmarion.nl/blog/blog/wowza-dashboard-1-0/
+
 #Setup:
 What you need is a webserver with php 5.3+, apache and mysql installed
 Create a database:
