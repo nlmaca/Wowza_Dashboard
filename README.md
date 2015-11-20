@@ -1,6 +1,6 @@
 # Wowza Streaming Engine Live Dashboard
 is based on my previous version of wowza live charts. That project is deleted and merged and improved in this project.
-Its version 1.0 and im already building on version 1.1. but its the first stable release. 
+Its version 1.0 and im already building on version 1.1. but its the first stable release.  You need at least Wowza Streaming Engine 4.0 for this to work.
 
 #Demopage:
 http://vanmarion.nl/projects/Wowza_Dashboard
@@ -15,7 +15,7 @@ http://vanmarion.nl/projects/wowza_demo/index.php
 http://vanmarion.nl/blog/blog/wowza-dashboard-1-0/
 
 #Setup:
-What you need is a webserver with php 5.3+, apache and mysql installed
+What you need is a webserver with php 5.3+, apache and mysql installed (you can run that on another server)
 Create a database:
  - run the scripts in the /install/mysql_tables.sql
  - edit the file :/Wowza_Dashboard/inc/general_conf.inc.php and fill in the credentials of your database. And edit 
