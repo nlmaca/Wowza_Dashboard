@@ -1,13 +1,10 @@
 <?php
-// page version: 1.0
+// page version: 1.1
 require("../../../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
     die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
 }
-?>
-
-<?php
 
 // Create connection
 $connect = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);
@@ -32,14 +29,6 @@ if (!$fp) {
 } 
 else {
 	echo "Wowza is online";
-	
-	/* $out = "GET / HTTP/1.1\r\n";
-    $out .= "Host: dev2.vanmarion.nl\r\n";
-    $out .= "Connection: Close\r\n\r\n";
-    fwrite($fp, $out);
-    while (!feof($fp)) {
-        echo fgets($fp, 128);
-    } */
 	fclose($fp);
 }		
 ?>

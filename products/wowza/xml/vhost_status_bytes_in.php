@@ -1,13 +1,10 @@
 <?php
-// page version: 1.0
+// page version: 1.1
 require("../../../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
     die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
 }
-?>
-
-<?php
 
 // Create connection
 $connect = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);
@@ -22,8 +19,7 @@ while($row=mysqli_fetch_array($output)){
 }
 
 // source = bytes. convert to bits and convert again to kbps
-$bandWithIn = $VhostBytesIn * 8 / 1024;
-
+$bandWithIn = $VhostBytesIn * 8 / 1000;
 
 //convert to 2 numbers behind the dot result:  157.56
 $bandwithIncoming = number_format($bandWithIn, 1, '.', '');
@@ -32,7 +28,4 @@ echo $bandwithIncoming;
 
 //convert to 2 numbers behind the dot result:  157.56
 //$bandwith_kbps = number_format($bandwithOut, 2, '.', '');
-
-			
-			
 ?>

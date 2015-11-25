@@ -12,13 +12,13 @@ if(empty($_SESSION['user'])) {
 	<div class="container">
     	<h3>Wowza Streaming Engine</h3>
         <p>These settings have to be set on the Wowza server in the streaming manager.<br>
-		Make sure it has read-only rights</p>
+		</p>
     </div>
 </div>
 
 <?php
 echo "<div class='panel panel-default'>";
-echo "<div class='panel-heading'>Application information</div>";
+echo "<div class='panel-heading'>Wowza Streaming Engine settings</div>";
 echo "<table class='table table-bordered'>";
 //echo "<tr><td><b>Id</b></td><td><b>ServerName</b></td><td><b>Url</b></td><td><b>username</b></td><td><b>password</b></td><td><b>port</b></td></tr>";
 

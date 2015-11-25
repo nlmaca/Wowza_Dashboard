@@ -1,13 +1,10 @@
 <?php
-// page version: 1.0
+// page version: 1.1
 require("../../../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
     die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
 }
-?>
-
-<?php
 
 // Create connection
 $connect = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);

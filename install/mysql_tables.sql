@@ -59,6 +59,4 @@ primary key(data_id)
 insert into wow_connections (server_name, server_url, server_username, server_password, server_port) VALUES
 ('give_a_name', 'your_wowza_url', 'wowza_user', 'wowza_password', '8086' );
 
-/* todo wowza table for extraction of serverinfo */
-
 

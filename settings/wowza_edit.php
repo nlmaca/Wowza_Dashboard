@@ -23,7 +23,7 @@ function ShowHide() {
 </script>
 
 <?php
-$id = $_POST['id'];
+$id = htmlspecialchars($_POST['id']);
 
 
 // Create connection

@@ -11,12 +11,12 @@ if(empty($_SESSION['user'])) {
 
 
 <?php
-$id = $_POST['id'];
-$server_name = $_POST['servername'];
-$server_url = $_POST['serverurl'];
-$server_username = $_POST['serverusername'];
-$server_password = $_POST['serverpassword'];
-$server_port = $_POST['serverport'];
+$id = htmlspecialchars($_POST['id']);
+$server_name = htmlspecialchars($_POST['servername']);
+$server_url = htmlspecialchars($_POST['serverurl']);
+$server_username = htmlspecialchars($_POST['serverusername']);
+$server_password = htmlspecialchars($_POST['serverpassword']);
+$server_port = htmlspecialchars($_POST['serverport']);
 
 // Create connection
 $connect = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);

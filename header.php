@@ -26,8 +26,8 @@
                     <i class="fa fa-bars fa-2x"></i>
                 </button>
                 <a class="navbar-brand" href="<?php echo $DOCUMENT_ROOT; ?>/products/wowza/vhost_overview.php">
-                    <img alt="Brand" src="<?php echo $DOCUMENT_ROOT; ?>/img/coffee-2-32.png" alt="Wowza Dashboard" title="Wowza Dashboard">
-                </a>
+                    <img alt="Wowza Dashboard" src="<?php echo $DOCUMENT_ROOT; ?>/img/network-32.png" alt="Wowza Dashboard" title="Wowza Dashboard"> 
+                </a> 
             </div>
         
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,7 +38,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-server fa-fw"></i> Wowza <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $DOCUMENT_ROOT; ?>/products/wowza/vhost_overview.php"><i class="fa fa-bar-chart fa-fw"></i> Server info</a></li>
-                            <li><a href="<?php echo $DOCUMENT_ROOT; ?>/products/wowza/running_apps.php"><i class="fa fa-tree fa-fw"></i> Running Apps</a></li>
+                            <li><a href="<?php echo $DOCUMENT_ROOT; ?>/products/wowza/xml/extract_applications.php"><i class="fa fa-tree fa-fw"></i> All Apps</a></li>
+                            <li><a href="<?php echo $DOCUMENT_ROOT; ?>/products/wowza/running_apps.php"><i class="fa fa-folder-open fa-fw"></i> Running Apps</a></li>
                         </ul>
                     </li>
                     <!-- settings -->       

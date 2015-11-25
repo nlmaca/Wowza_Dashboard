@@ -10,7 +10,7 @@ if(empty($_SESSION['user'])) {
 <?php include ("../header.php");?>
 
 <?php
-$id = $_POST['id'];
+$id = htmlspecialchars($_POST['id']);
 
 
 // Create connection

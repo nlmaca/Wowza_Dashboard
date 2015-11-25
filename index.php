@@ -65,7 +65,7 @@
 <body>
 <div class="container">
     <form class="form-signin" action="index.php" method="post"> 
-        <h2 class="form-signin-heading"><img src="img/wowza_icon.png" height="40px" alt="Wowza Dashboard" title="Wowza Dashboard">&nbsp;&nbsp;Live Dashboard</h2>
+        <h2 class="form-signin-heading"><img src="img/network-128.png" height="40px" alt="Wowza Dashboard" title="Wowza Dashboard">&nbsp;&nbsp;Live Dashboard</h2>
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="text" class="form-control" placeholder="Username" name="username" value="<?php echo $submitted_username; ?>" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>

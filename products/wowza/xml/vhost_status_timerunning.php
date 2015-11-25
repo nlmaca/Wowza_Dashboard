@@ -1,13 +1,10 @@
 <?php
-// page version: 1.0
+// page version: 1.1
 require("../../../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
     die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
 }
-?>
-
-<?php
 
 // Create connection
 $connect = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);
@@ -22,6 +19,7 @@ while($row=mysqli_fetch_array($output)){
 }
 //convert string to number (get part of the string befor the dot)
 $str = $VhostTime;
+
 $Seconds = substr($str,0,strrpos($str,'.'));
 
 //convert number to days, hours, minutes
@@ -31,6 +29,5 @@ function secondsToTime($seconds) {
     return $dtF->diff($dtT)->format('%a days, %hh %imin');
 }
 echo secondsToTime($Seconds);
-
 			
 ?>

@@ -1,6 +1,6 @@
 # Wowza Streaming Engine Live Dashboard
 is based on my previous version of wowza live charts. That project is deleted and merged and improved in this project.
-Its version 1.0 and im already building on version 1.1. but its the first stable release.  You need at least Wowza Streaming Engine 4.0 for this to work.
+Its version 1.0 and im already building on version 1.1. but its the first stable release. 
 
 #Demopage:
 http://vanmarion.nl/projects/Wowza_Dashboard
@@ -11,40 +11,65 @@ If you want to test the dashboard just open this page and start the vod movie. w
 http://vanmarion.nl/projects/wowza_demo/index.php
 (works with desktop, android, iphone) windows phone not tested.
 
+#Requirements
+- Valid Wowza 4.x StreamingEngine environment (development or production)
+- webserver where you can run this dashboard from
+- Wowza server: open port 8086 in your firewall, edit VHost.xml (see below)
+
 #screenshots 
 http://vanmarion.nl/blog/blog/wowza-dashboard-1-0/
+and see install directory
 
 #Setup:
-What you need is a webserver with php 5.3+, apache and mysql installed (you can run that on another server)
-Create a database:
- - run the scripts in the /install/mysql_tables.sql
- - edit the file :/Wowza_Dashboard/inc/general_conf.inc.php and fill in the credentials of your database. And edit 
+What you need is a webserver with php 5.3+, apache and mysql installed
+- Create a database in mysql
+- run the scripts in the /install/mysql_tables.sql
+- edit the file :/Wowza_Dashboard/inc/general_conf.inc.php and fill in the credentials of your database.
+- also change (if needed) the webdirectory and your timezone
+```
+$dbUserName = "DBUSERNAME"; 
+$dbUserPasswd = "DBUSERPASSWORD"; 
+$dbHost = "localhost"; 
+$dbName = "DBNAME"; 
+
+$DOCUMENT_ROOT = '/projects/Wowza_Dashboard_1.1'; // set your webroot directory: NO trailerslash!!!
+date_default_timezone_set('Europe/Amsterdam');
+```
 the document_root to your needs.
-upload the complete folder Wowza_Dashboard to your webhost
+upload the contents of the Wowza_Dashboard directory to your root or a directory of choice to your webhost
 
 #Wowza create user
 you have to create a user in the enginemanager with read only rights.
 make sure port 8086 is open in your firewall. 
 you can test if your account works in your browser:
-http://your_ipaddress:8086/connectioncounts
+http://wowza_ipaddress:8086/connectioncounts
 and login with the credentials you have set. you should see the xml output
 
 Check the settings below, cause you have to change the authentication method
 
 #wowza adjustments
 open the file /usr/local/WowzaStreamingEngine/conf/VHost.xml
-
-find this line:
+find these lines:
 ```
-<HTTPProvider><BaseClass>com.wowza.wms.http.HTTPConnectionCountsXML</BaseClass<RequestFilters>connectioncounts*</RequestFilters><AuthenticationMethod>admin-digest</AuthenticationMethod></HTTPProvider>
+<HTTPProvider>
+<BaseClass>com.wowza.wms.http.HTTPConnectionCountsXML</BaseClass>
+	<RequestFilters>connectioncounts*</RequestFilters>
+	<AuthenticationMethod>admin-digest
+	</AuthenticationMethod>
+</HTTPProvider>
 ```
 and change the authentication method from admin-digest 
 to:
 admin-basic
 ```
-<HTTPProvider><BaseClass>com.wowza.wms.http.HTTPConnectionCountsXML</BaseClass<RequestFilters>connectioncounts*</RequestFilters><AuthenticationMethod>admin-basic</AuthenticationMethod></HTTPProvider>
+<HTTPProvider>
+	<BaseClass>com.wowza.wms.http.HTTPConnectionCountsXML</BaseClass>
+	<RequestFilters>connectioncounts*</RequestFilters>
+	<AuthenticationMethod>admin-basic</AuthenticationMethod>
+</HTTPProvider>
 ```
-edit the file
+
+edit the file (or create one in wowza streaming manager)
 ```
 /usr/local/WowzaStreamingEngine/conf/admin.password 
 ```
@@ -58,16 +83,30 @@ if you have a firewall running make sure port 8086 is accessible
 Test the link in your browser with the login credentials you have set in the previous step:
 http://<YOURSERVER_IPADRESS>:8086/connectioncounts
 
-#Version 1.0:
+#Version 1.1
+- added detailed info of a application (extraction of serverinfo based on application name)
+- added datatransfer information
+- code cleaning/optimalisation
+- better usage of error reporting
+- changed datatransfer rate
+- added extra page all applications that are on the wowza server with the status (loaded, unloaded)
+- updated demo environment with version 1.1
+
+#Upgrading from version 1.0 to 1.1?
+- just copy all the files (except the /inc/general.conf.inc.php)
+- no mysql tables have changed, only files
+
+#[Archive]Version 1.0:
 - designed for mobile first
 - dashboard setup with basic userlogin
-- create and delete users (change of password will come in version 1.1)
+- create and delete users (change of password will come in later version)
 - configuration page for wowza connnections setup
 - protected pages
-- extracting of connectioncounts (xml) and inserting into mysql. best to use a cronjob, or wait for 60seconds.
+- extracting of connectioncounts (xml) and inserting into mysql. 
 - show which application is online/offline and bandwith 
 - suitable for versions starting from 4.0.0 and up
 - minor configuration needed in Wowza Streaming Engine (create read account)
+
 
 /*
  * Copyright (c) 2015 Jeroen van Marion <jeroen@vanmarion.nl>

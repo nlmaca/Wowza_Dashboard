@@ -1,22 +1,18 @@
 <?php
-// page version: 1.0
-     require("../../inc/general_conf.inc.php");
-    if(empty($_SESSION['user'])) 
-    {
-        header("Location: ". $DOCUMENT_ROOT . "/index.php");
-        die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
-    }
+// page version: 1.1
+require("../../inc/general_conf.inc.php");
+if(empty($_SESSION['user'])) {
+    header("Location: ". $DOCUMENT_ROOT . "/index.php");
+    die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
+}
     
-//include("../../inc/wowza_conf.inc.php");
 ?>
-
 <script type="text/javascript">
     function updateXML(){
         $('#updateXMLfile').load('xml/extract_connectioncounts.php');
     }
-    setInterval( "updateXML()", 60000 );
-</script>
-<script type="text/javascript">
+    setInterval( "updateXML()", 30000 );
+
     function updateStats(){
         $('#serverstatus').load('xml/vhost_status_server.php');
         $('#currentconnections').load('xml/vhost_status_current_connections.php');
@@ -41,7 +37,7 @@
         <div class="stats-info">
             <h4>SERVER STATUS</h4>
             <div id="serverstatus" class="stats-number">
-                <i class="fa fa-spinner fa-spin"></i>
+                <i class="fa fa-spinner fa-spin"></i> Getting data, be patient
             </div>
         </div>
     </div>
@@ -52,7 +48,7 @@
         <div class="stats-info">
             <h4>SERVER TIME RUNNING</h4>
             <div id="timerunning" class="stats-number">
-                <i class="fa fa-spinner fa-spin"></i>
+                <i class="fa fa-spinner fa-spin"></i> Getting Data, be patient
             </div>
         </div>
     </div>
@@ -62,8 +58,8 @@
         <div class="stats-icon stats-icon-lg"><i class="fa fa-odnoklassniki fa-fw"></i></div>
         <div class="stats-info">
             <h4>CURRENT CONNECTIONS</h4>
-            <div id="currentconnections" class="stats-number">
-                <i class="fa fa-spinner fa-spin"></i>
+            <div id="currentconnections" class="stats-number"> 
+                <i class="fa fa-spinner fa-spin"></i> Getting Data, be patient
             </div>
         </div>
     </div>
@@ -74,7 +70,7 @@
         <div class="stats-info">
             <h4>TOTAL CONNECTIONS</h4>
             <div id="totalconnections" class="stats-number">
-                <i class="fa fa-spinner fa-spin"></i>
+                <i class="fa fa-spinner fa-spin"></i> Getting Data, be patient
             </div>
         </div>
     </div>
@@ -86,7 +82,7 @@
         <div class="stats-info">
             <h4>BANDWITH IN (kbps)</h4>
             <div id="bandwithin" class="stats-number">
-                <i class="fa fa-spinner fa-spin"></i>
+                <i class="fa fa-spinner fa-spin"></i> Getting Data, be patient
             </div>
         </div>
     </div>
@@ -97,7 +93,7 @@
         <div class="stats-info">
             <h4>BANDWITH OUT (kbps)</h4>
             <div id="bandwithout" class="stats-number">
-                <i class="fa fa-spinner fa-spin"></i>
+                <i class="fa fa-spinner fa-spin"></i> Getting Data, be patient
             </div>
         </div>
     </div>

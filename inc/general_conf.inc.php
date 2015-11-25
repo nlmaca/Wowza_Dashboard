@@ -20,9 +20,11 @@
 // example: 
 //$DOCUMENT_ROOT = 'http://vanmarion.nl/projects/Wowza_Dashboard'; // NO trailerslash!!!!
 
-$DOCUMENT_ROOT = ''; // NO trailerslash!!!!
-$TITLE = 'Wowza Live Dashboard';
-$DESCRIPTION = 'Version 1.0';
+$DOCUMENT_ROOT = '/projects/Wowza_Dashboard_1.1'; // NO trailerslash!!!!
 date_default_timezone_set('Europe/Amsterdam');
+
+$TITLE = 'Wowza Live Dashboard';
+$DESCRIPTION = 'Version 1.1';
+
 
 ?>
