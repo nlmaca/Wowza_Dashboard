@@ -1,6 +1,9 @@
-# Wowza Streaming Engine Live Dashboard
-is based on my previous version of wowza live charts. That project is deleted and merged and improved in this project.
-Its version 1.0 and im already building on version 1.1. but its the first stable release. 
+# Wowza Live Dashboard 1.1
+I have been searching for a live dashboard, but never could find one, so i decided to build one myself. 
+The dashboard relies on 2 xml output pages which are created by wowza itself. The connectioncounts and serverinfo pages. I keep on developing this dashboard to my needs.
+If you have any problems or remarks, just leave a note or send an email how you think about it. Im alwasy open to feedback.
+
+This version is for Wowza Streaming Engine 4.x. I also have one for Wowza Media Server 2.2.4 (i rebuild this version on a user request). If you need this one, just let me know
 
 #Demopage:
 http://vanmarion.nl/projects/Wowza_Dashboard_1.1
