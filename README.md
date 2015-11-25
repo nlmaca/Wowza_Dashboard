@@ -3,11 +3,11 @@ is based on my previous version of wowza live charts. That project is deleted an
 Its version 1.0 and im already building on version 1.1. but its the first stable release. 
 
 #Demopage:
-http://vanmarion.nl/projects/Wowza_Dashboard
+http://vanmarion.nl/projects/Wowza_Dashboard_1.1
 username: demo / password: demo
 
 #Demo Wowza Page
-If you want to test the dashboard just open this page and start the vod movie. within 60seconds the dashboard will update and you will see the results there
+If you want to test the dashboard just open this page and start the vod movie. within 30 seconds the dashboard will update and you will see the results there
 http://vanmarion.nl/projects/wowza_demo/index.php
 (works with desktop, android, iphone) windows phone not tested.
 
