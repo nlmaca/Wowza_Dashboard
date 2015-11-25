@@ -51,7 +51,7 @@
     <meta name="author" content="J. van Marion">
     <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/sticky-footer.css" rel="stylesheet">
     <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/style.min.css" rel="stylesheet">
+    <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/style2.min.css" rel="stylesheet">
     <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/signin.css" rel="stylesheet">
 
