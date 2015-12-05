@@ -1,45 +1,45 @@
-# Wowza Live Dashboard 1.1
-I have been searching for a live dashboard, but never could find one, so i decided to build one myself. 
-The dashboard relies on 2 xml output pages which are created by wowza itself. The connectioncounts and serverinfo pages. I keep on developing this dashboard to my needs.
-If you have any problems or remarks, just leave a note or send an email how you think about it. Im alwasy open to feedback.
-
-This version is for Wowza Streaming Engine 4.x. I also have one for Wowza Media Server 2.2.4 (i rebuild this version on a user request). If you need this one, just let me know
+# Wowza Streaming Engine Live Dashboard
+is based on my previous version of wowza live charts. That project is deleted and merged and improved in this project.
+Its version 1.0 and im already building on version 1.1. but its the first stable release. 
 
 #Demopage:
-http://vanmarion.nl/projects/Wowza_Dashboard_1.1
+http://vanmarion.nl/projects/Wowza_Dashboard
 username: demo / password: demo
 
 #Demo Wowza Page
-If you want to test the dashboard just open this page and start the vod movie. within 30 seconds the dashboard will update and you will see the results there
+If you want to test the dashboard just open this page and start the vod movie. within 60seconds the dashboard will update and you will see the results there
 http://vanmarion.nl/projects/wowza_demo/index.php
 (works with desktop, android, iphone) windows phone not tested.
 
 #Requirements
-- Valid Wowza 4.x StreamingEngine environment (development or production)
+- Valid Wowza 4.x environment (development or production)
+- valid (free or paid) Jwplayer license
 - webserver where you can run this dashboard from
 - Wowza server: open port 8086 in your firewall, edit VHost.xml (see below)
-
+- webhosting: 
+		php 5.3+, apache, MySQL
+		allow_url_open = On (or 1)
+		allowing of retreiving external connections
+		simpleXML enabled
+		
 #screenshots 
 http://vanmarion.nl/blog/blog/wowza-dashboard-1-0/
 and see install directory
 
 #Setup:
 What you need is a webserver with php 5.3+, apache and mysql installed
-- Create a database in mysql
-- run the scripts in the /install/mysql_tables.sql
-- edit the file :/Wowza_Dashboard/inc/general_conf.inc.php and fill in the credentials of your database.
-- also change (if needed) the webdirectory and your timezone
+external connections should be allowed by your webhosting provider. (see troubleshooting if you run into problems).
+Create a database:
+ - run the scripts in the /install/mysql_tables.sql
+ - edit the file :/Wowza_Dashboard/inc/general_conf.inc.php and fill in the credentials of your database.
 ```
-$dbUserName = "DBUSERNAME"; 
-$dbUserPasswd = "DBUSERPASSWORD"; 
-$dbHost = "localhost"; 
-$dbName = "DBNAME"; 
-
 $DOCUMENT_ROOT = '/projects/Wowza_Dashboard_1.1'; // set your webroot directory: NO trailerslash!!!
 date_default_timezone_set('Europe/Amsterdam');
 ```
-the document_root to your needs.
+change DOCUMENT_ROOT to your directory where you want to upload the dashboard
+change your default_timezone in case its not the same.
 upload the contents of the Wowza_Dashboard directory to your root or a directory of choice to your webhost
+dont upload the install directory
 
 #Wowza create user
 you have to create a user in the enginemanager with read only rights.
@@ -71,20 +71,16 @@ admin-basic
 	<AuthenticationMethod>admin-basic</AuthenticationMethod>
 </HTTPProvider>
 ```
+This requires a restart of your WowzaStreamingEngine, its up to you when its the best time to restart your StreamingEngine (in case of running applications)
 
-edit the file (or create one in wowza streaming manager)
-```
-/usr/local/WowzaStreamingEngine/conf/admin.password 
-```
-you have to add a user.
-(example:
-```
-wowza_dashboard 123456
-```
-save the file and restart the StreamingEngine and the StreamingEngineManager
-if you have a firewall running make sure port 8086 is accessible
-Test the link in your browser with the login credentials you have set in the previous step:
-http://<YOURSERVER_IPADRESS>:8086/connectioncounts
+#Version 1.2
+- added troubleshooting in the readme file
+- added contact info in the footer
+- added check scripts in case of trouble shooting
+
+#Upgrading from version 1.0 to 1.1/1.2?
+- just copy all the files (except the /inc/general.conf.inc.php)
+- no mysql tables have changed, only files
 
 #Version 1.1
 - added detailed info of a application (extraction of serverinfo based on application name)
@@ -94,10 +90,6 @@ http://<YOURSERVER_IPADRESS>:8086/connectioncounts
 - changed datatransfer rate
 - added extra page all applications that are on the wowza server with the status (loaded, unloaded)
 - updated demo environment with version 1.1
-
-#Upgrading from version 1.0 to 1.1?
-- just copy all the files (except the /inc/general.conf.inc.php)
-- no mysql tables have changed, only files
 
 #[Archive]Version 1.0:
 - designed for mobile first
@@ -110,6 +102,25 @@ http://<YOURSERVER_IPADRESS>:8086/connectioncounts
 - suitable for versions starting from 4.0.0 and up
 - minor configuration needed in Wowza Streaming Engine (create read account)
 
+#Troubleshooting
+1. When receiving errors like this in the dashboard:
+```
+Warning: simplexml_load_file(http://...@IPADDRESS:8086/connectioncounts) 
+[function.simplexml-load-file]: failed to open stream: Connection refused in ............ /products/wowza/xml/extract_connectioncounts.php on line 28
+```
+this means your webhost has disabled external connections on your account to port 8086. Its a known issue at GoDaddy which only allows connecting to port 80 and 443. Only solution will be if Godaddy would allow port 8086
+or you have to find another webhost for this script.
+
+You can check if the simplexml module is installed in php. 
+run the scripts:
+/checks/check_extensions.php  to see if the libxml module is installed
+/checks/ext_connections.php to see if it shows the google page (that means libxml is working on port 80)
+
+
+2. the icons keep spinning on the wowza_overview.php page or no data is updated.
+- wait for about 30 seconds to see any changes (it used to be 60seconds before any data would show).
+- Please check if you have any streams online (or play any vod from your wowza server). 
+- check the /usr/local/WowzaStreamingEngine/conf/VHost.xml if you have set the authentication to admin-basic for connectioncounts* and serverinfo* (a restart of the streamingEngine is needed)
 
 /*
  * Copyright (c) 2015 Jeroen van Marion <jeroen@vanmarion.nl>

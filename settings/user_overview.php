@@ -33,10 +33,10 @@ while($row=mysqli_fetch_array($output)){
 		echo "<td>" . $row['email'] .  "</td>";
 		
 		//delete user
-		echo "<form action='user_delete.php' method='POST'>";
-		echo "<td><input type='submit' value='Delete' class='btn btn-info btn-xs'></td>";
-		echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-		echo "</form>";
+		//echo "<form action='user_delete.php' method='POST'>";
+		//echo "<td><input type='submit' value='Delete' class='btn btn-info btn-xs'></td>";
+		//echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+		//echo "</form>";
 
 		echo "</tr>";
 	}

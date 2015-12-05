@@ -14,17 +14,15 @@
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
     header('Content-Type: text/html; charset=utf-8'); 
     session_start(); 
-    
-
 
 // example: 
 //$DOCUMENT_ROOT = 'http://vanmarion.nl/projects/Wowza_Dashboard'; // NO trailerslash!!!!
 
-$DOCUMENT_ROOT = '/projects/Wowza_Dashboard_1.1'; // NO trailerslash!!!!
+$DOCUMENT_ROOT = '/projects/Wowza_Dashboard'; // NO trailerslash!!!!
 date_default_timezone_set('Europe/Amsterdam');
 
 $TITLE = 'Wowza Live Dashboard';
-$DESCRIPTION = 'Version 1.1';
+$DESCRIPTION = 'Version 1.2';
 
 
 ?>
