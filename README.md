@@ -2,14 +2,8 @@
 is based on my previous version of wowza live charts. That project is deleted and merged and improved in this project.
 Its version 1.0 and im already building on version 1.1. but its the first stable release. 
 
-#Demopage:
-http://vanmarion.nl/projects/Wowza_Dashboard
-username: demo / password: demo
-
 #Demo Wowza Page
-If you want to test the dashboard just open this page and start the vod movie. within 60seconds the dashboard will update and you will see the results there
-http://vanmarion.nl/projects/wowza_demo/index.php
-(works with desktop, android, iphone) windows phone not tested.
+-- update dec 9 2015 - i shut down the demo server environment
 
 #Requirements
 - Valid Wowza 4.x environment (development or production)
